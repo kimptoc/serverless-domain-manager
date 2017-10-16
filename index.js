@@ -155,6 +155,10 @@ class ServerlessCustomDomain {
       throw new Error('customDomain settings in Serverless are not configured correctly');
     }
 
+    if (!service.custom.customDomain.basePath) {
+      throw new Error('customDomain.basePath setting missing in Serverless configuration');
+    }
+
     let basePath = service.custom.customDomain.basePath;
 
     // Base path cannot be empty, instead it must be (none)
